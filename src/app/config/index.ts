@@ -10,6 +10,6 @@ export default {
    salt_rounds: process.env.SALT_ROUNDS,
   // DB_PASSWORD: process.env.DB_PASSWORD,
   // DB_NAME: process.env.DB_NAME,
-  // JWT_SECRET: process.env.JWT_SECRET,
-  // JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN,
+   jwt_secret: process.env.JWT_SECRET,
+   jwt_expires_in: process.env.JWT_EXPIRES_IN,
 };

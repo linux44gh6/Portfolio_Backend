@@ -1,6 +1,6 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-const route=Router()
-route.get('/')
+const route = Router();
+route.get('/');
 
-export  const AuthRoute=route
+export const AuthRoute = route;

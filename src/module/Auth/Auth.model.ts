@@ -1,7 +1,7 @@
-import mongoose, { Schema } from "mongoose";
-import { IUserModel, TUser } from "./Auth.interface";
-import bcrypt from "bcrypt";
-import config from "../../app/config";
+import mongoose, { Schema } from 'mongoose';
+import { IUserModel, TUser } from './Auth.interface';
+import bcrypt from 'bcrypt';
+import config from '../../app/config';
 
 const UserSchema = new Schema<TUser>({
   name: {
@@ -20,7 +20,7 @@ const UserSchema = new Schema<TUser>({
 });
 
 // Hash the password before saving
-UserSchema.pre<TUser>("save", async function (next) {
+UserSchema.pre<TUser>('save', async function (next) {
   this.password = await bcrypt.hash(this.password, Number(config.salt_rounds));
   next();
 });
@@ -34,4 +34,4 @@ UserSchema.statics.isPasswordMatched = async function (
 };
 
 // Create the User model with correct typing
-export const UserModel = mongoose.model<TUser,IUserModel>("User", UserSchema);
+export const UserModel = mongoose.model<TUser, IUserModel>('User', UserSchema);

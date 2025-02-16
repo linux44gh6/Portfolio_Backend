@@ -19,17 +19,17 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   ];
 
   if (err instanceof ZodError) {
-    const simplifiedError = handelZodError(err)
+    const simplifiedError = handelZodError(err);
     statusCode = simplifiedError?.statusCode || statusCode;
     message = simplifiedError?.message || message;
     errorSources = simplifiedError?.errorSources || errorSources;
   } else if (err?.name === 'ValidationError') {
-    const simplifiedError =handelValidationError(err)
+    const simplifiedError = handelValidationError(err);
     statusCode = simplifiedError?.statusCode || statusCode;
     message = simplifiedError?.message || message;
     errorSources = simplifiedError?.errorSources || errorSources;
   } else if (err?.name === 'CastError') {
-    const simplifiedError =handleCastError(err)
+    const simplifiedError = handleCastError(err);
     statusCode = simplifiedError?.statusCode || statusCode;
     message = simplifiedError?.message || message;
     errorSources = simplifiedError?.errorSources || errorSources;

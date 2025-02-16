@@ -17,5 +17,5 @@ app.get('/', (req: Request, res: Response) => {
   res.send('My PortFolio');
 });
 app.use(NotFound);
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 export default app;

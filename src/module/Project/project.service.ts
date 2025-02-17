@@ -9,6 +9,11 @@ const createProject = async (payload:TProject) => {
     return result;
   };
   
+  const getProject = async () => {
+    const result = await Project.find();
+    return result;
+  }
   export const ProjectServices = {
     createProject,
+    getProject
   };

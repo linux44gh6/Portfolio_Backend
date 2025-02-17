@@ -29,4 +29,4 @@ const ProductPostSchema = new Schema<TBlog>(
   }
 );
 
-export const Blog = model<TBlog>('Products', ProductPostSchema);
+export const Blog = model<TBlog>('Blog', ProductPostSchema);

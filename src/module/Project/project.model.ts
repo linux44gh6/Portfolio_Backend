@@ -29,4 +29,4 @@ const ProductPostSchema = new Schema<TProject>(
   }
 );
 
-export const Project = model<TProject>('Products', ProductPostSchema);
+export const Project = model<TProject>('Project', ProductPostSchema);

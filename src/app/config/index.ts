@@ -12,4 +12,5 @@ export default {
   // DB_NAME: process.env.DB_NAME,
   jwt_secret: process.env.JWT_SECRET,
   jwt_expires_in: process.env.JWT_EXPIRES_IN,
+  app_pass:process.env.APP_PASS
 };

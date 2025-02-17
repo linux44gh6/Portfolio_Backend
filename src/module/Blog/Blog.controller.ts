@@ -12,5 +12,15 @@ const createBlog = catchAsync(async (req, res) => {
       data: result,
     });
   });
+  const getBlog = catchAsync(async (req, res) => {
+    const result=await BlogServices.getBlog();
+    SendResponse(res, {
+      success: true,
+      statusCode: StatusCodes.OK,
+      message: 'Blog created success',
+      data: result,
+    });
+  });
 
-export const BlogController = { createBlog };
+export const BlogController = { 
+    getBlog,createBlog };

@@ -1,21 +1,17 @@
-Live server: https://n-backend-sigma.vercel.app
+# 🚀 Portfolio Backend Server
 
-This is Portfolio server.
+🌐 **Live Server:** [https://n-backend-sigma.vercel.app](https://n-backend-sigma.vercel.app)
 
-## How to run this repo into you local computer
+This is the backend server for my personal portfolio. It manages contact form submissions and provides essential API endpoints.
 
-1.Clone this repo in local computer.
+---
 
-First, run the development server:
+## 🛠️ How to Run This Project Locally
+
+Follow the steps below to set up and run the project on your local machine:
+
+### ✅ 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-```
-
-4.check the .env config file
-
-5.npm run build
-
-6.now you can check the api from postman
+git clone https://github.com/linux44gh6/Portfolio_Backend.git
+cd Portfolio_Backend

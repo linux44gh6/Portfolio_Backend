@@ -7,12 +7,23 @@ const sendMail = async (payload: TContact) => {
   try {
     console.log("Sending email with payload:", payload);
     const info = await transporter.sendMail({
-      from: `"${payload.firstName}" <${payload.email}>`,
-      to: "abireshan32@gmail.com", 
-      subject: `New Message from ${payload.firstName}`, 
-      text: `Hello ${payload.firstName},\n\n${payload.message}`, 
-      html: `<p>Hello <b>${payload.firstName}</b>,</p><p>${payload.message}</p>`,
-    });
+  from: `"${payload.firstName}" <${payload.email}>`,
+  to: "abireshan32@gmail.com",
+  subject: `New Message from ${payload.firstName}`,
+  text: `
+    New message from: ${payload.firstName}
+    Email: ${payload.email}
+    
+    Message:
+    ${payload.message}
+  `,
+  html: `
+    <h3>New Message from ${payload.firstName}</h3>
+    <p><strong>Email:</strong> ${payload.email}</p>
+    <p><strong>Message:</strong></p>
+    <p>${payload.message.replace(/\n/g, '<br>')}</p>
+  `,
+});
   } catch (error) {
     return { success: false, message: "Error sending email" };
   }

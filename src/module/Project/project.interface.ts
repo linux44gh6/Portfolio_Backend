@@ -6,4 +6,5 @@ export type TProject = {
     live_link: string;
     github_link: string;
     date: Date;
+    techStack: string[];
   };

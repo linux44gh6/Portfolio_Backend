@@ -21,5 +21,25 @@ const createProject = catchAsync(async (req, res) => {
       data: result,
     });
   });
+  const deleteProject = catchAsync(async (req, res) => {
+    const {projectId}=req.params;
+    const result=await ProjectServices.deleteProject(projectId);
+    SendResponse(res, {
+      success: true,
+      statusCode: StatusCodes.OK,
+      message: 'project deleted success',
+      data: result,
+    });
+  });
 
-export const ProjectController = { createProject, getProject };
+  const singleProject = catchAsync(async (req, res) => {
+    const {projectId}=req.params;
+    const result=await ProjectServices.singleProject(projectId);
+    SendResponse(res, {
+      success: true,
+      statusCode: StatusCodes.OK,
+      message: 'project retrive success',
+      data: result,
+    });
+  })
+export const ProjectController = { createProject, getProject, deleteProject, singleProject };

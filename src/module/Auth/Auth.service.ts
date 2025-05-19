@@ -5,6 +5,11 @@ import { UserModel } from './Auth.model';
 import config from '../../app/config';
 import { createToken } from './Utills';
 const createUser = async (payload: TUser) => {
+  const {email}=payload
+  const user = await UserModel.findOne({ email });
+  if (user) {
+    throw new AppError(StatusCodes.BAD_REQUEST, 'user already exist');
+  }
   const result = await UserModel.create(payload);
   return result;
 };
@@ -24,12 +29,14 @@ const loginUser = async (payload: Partial<TUser>) => {
   }
   const jwtPayload = {
     userEmail: user.email,
+    name:user.name,
+    role:user.role
   };
   const accessToken = createToken(
     jwtPayload,
     config.jwt_secret as string,
     config.jwt_expires_in as string
-  );
+  ); 
   return { accessToken };
 };
 export const AuthService = {

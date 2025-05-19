@@ -14,7 +14,17 @@ const createBlog = async (payload:TBlog) => {
     const result = await Blog.find();
     return result;
   }
+  const deleteBlog = async (blogId:string) => {
+    const result = await Blog.findByIdAndDelete(blogId);
+    return result;
+  }
+  const singleBlog = async (blogId:string) => {
+    const result = await Blog.findById(blogId);
+    return result;
+  }
   export const BlogServices = {
     createBlog,
-    getBlog
+    getBlog,
+    deleteBlog,
+    singleBlog
   };

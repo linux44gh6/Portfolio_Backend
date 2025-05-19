@@ -22,5 +22,30 @@ const createBlog = catchAsync(async (req, res) => {
     });
   });
 
+  const deleteBlog = catchAsync(async (req, res) => {
+    const {blogId}=req.params;
+    console.log(blogId);
+    const result=await BlogServices.deleteBlog(blogId);
+    SendResponse(res, {
+      success: true,
+      statusCode: StatusCodes.OK,
+      message: 'Blog deleted success',
+      data: result,
+    });
+  })
+  const singleBlog = catchAsync(async (req, res) => {
+    const {blogId}=req.params;
+    const result=await BlogServices.singleBlog(blogId);
+    SendResponse(res, {
+      success: true,
+      statusCode: StatusCodes.OK,
+      message: 'Blog retrive success',
+      data: result,
+    });
+  })
 export const BlogController = { 
-    getBlog,createBlog };
+    getBlog,
+    createBlog,
+    deleteBlog,
+    singleBlog
+   };

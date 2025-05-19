@@ -6,6 +6,6 @@ export const createToken = (
   expiresIn: string | number
 ): string => {
   return jwt.sign(jwtPayload, secret, {
-    expiresIn: expiresIn as string | number | undefined,
+    expiresIn: expiresIn as jwt.SignOptions['expiresIn'],
   });
 };

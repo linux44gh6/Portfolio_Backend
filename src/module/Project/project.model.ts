@@ -23,6 +23,10 @@ const ProductPostSchema = new Schema<TProject>(
     date: {
       type: Date,
     },
+    techStack: {
+      type: [String],
+      required:true
+    }
   },
   {
     timestamps: true,
